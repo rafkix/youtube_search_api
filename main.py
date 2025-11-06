@@ -2,7 +2,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, Field
 from typing import List, Optional, Any
-from api.yt_search import YoutubeSearch
+from yt_search import YoutubeSearch
 
 app = FastAPI(title="YT Search API", version="1.0")
 
@@ -30,3 +30,4 @@ async def search_get(q: str = Query(..., min_length=1), max_results: int = Query
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
